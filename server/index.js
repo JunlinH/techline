@@ -7,14 +7,11 @@ import cors from 'cors';
 //Routes
 import productRoutes from './routes/productRoutes.js';
 
-
 connectToDatabase();
 const app = express();
 app.use(express.json());
 app.use(cors());
-
 app.use('/api/products', productRoutes);
-
 
 
 const port = 5000;
