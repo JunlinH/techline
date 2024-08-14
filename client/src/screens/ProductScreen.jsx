@@ -15,6 +15,7 @@ import {
 	Spinner,
 	Stack,
 	Text,
+	useToast,
 	Wrap,
 } from "@chakra-ui/react";
 import { BiCheckShield, BiPackage, BiSupport } from "react-icons/bi";
@@ -23,6 +24,9 @@ import { useParams } from "react-router-dom";
 import { getProduct } from "../redux/actions/productActions";
 import { useEffect, useState } from "react";
 import Star from "../components/Star";
+import { addCartItem } from "../redux/actions/cartActions";
+
+// const toast = useToast();
 
 const ProductScreen = () => {
 	const [amount, setAmount] = useState(1);
@@ -42,6 +46,20 @@ const ProductScreen = () => {
 			setAmount(amount - 1);
 		}
 	};
+
+	// const addItem = () => {
+	// 	if (cartItems.some((cartItem) => cartItem.id === id)) {
+	// 		cartItems.find((cartItem) => cartItem.id === id);
+	// 		dispatch(addCartItem(id, amount));
+	// 	} else {
+	// 		dispatch(addCartItem(id, amount));
+	// 	}
+	// 	toast({
+	// 		description: "Item has been added.",
+	// 		status: "success",
+	// 		isClosable: true,
+	// 	});
+	// };
 
 	return (
 		<Wrap spacing='30px' justify='center' minHeight='100vh'>
@@ -115,10 +133,13 @@ const ProductScreen = () => {
 									<Stack width='270px'>
 										<Flex alignItems='center'>
 											<BiPackage size='20px' />
+											<Text fontWeight='medium' fontSize='sm' ml='2'>
+												Shipped in 2 - 3 days
+											</Text>
 										</Flex>
 										<Flex alignItems='center'>
 											<BiCheckShield size='20px' />
-											<Text fontWeight='medium' fontSize='sm'>
+											<Text fontWeight='medium' fontSize='sm' ml='2'>
 												2 year extended warranty
 											</Text>
 										</Flex>
