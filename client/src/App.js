@@ -10,6 +10,10 @@ import LoginScreen from './screens/LoginScreen';
 import EmailVerificationScreen from './screens/EmailVerificationScreen';
 import PasswordResetScreen from './screens/PasswordResetScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
+import YourOrdersScreen from './screens/YourOrdersScreen';
+import CheckoutScreen from './screens/CheckoutScreen';
+import CancelScreen from './screens/CancelScreen';
+import SuccessScreen from './screens/SuccessScreen';
 import axios from 'axios';
 import { VStack, Spinner } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
@@ -46,6 +50,10 @@ function App() {
               <Route path='/registration' element={<RegistrationScreen />} />
               <Route path='/email-verify/:token' element={<EmailVerificationScreen />} />
               <Route path='/password-reset/:token' element={<PasswordResetScreen />} />
+              <Route path='/checkout' element={<CheckoutScreen />} />
+              <Route path='/cancel' element={<CancelScreen />} />
+              <Route path='/order-history' element={<YourOrdersScreen />} />
+              <Route path='/success' element={<SuccessScreen />} />
             </Routes>
           </main>
           <Footer />
